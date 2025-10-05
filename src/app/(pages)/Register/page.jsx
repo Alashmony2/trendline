@@ -7,7 +7,7 @@ export default function Register() {
                     <input name="name" className="input input-info w-4/5" type="text" placeholder="Name" />
                     <input name="email" className="input input-info w-4/5" type="email" placeholder="Email" />
                     <input name="password" className="input input-info w-4/5" type="password" placeholder="Password" />
-                    <button className="btn  btn-info w-4/5 rounded">Register</button>
+                    <button className="btn btn-info w-4/5 rounded">Register</button>
                 </div>
             </form>
         </div>

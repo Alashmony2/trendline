@@ -1,5 +1,8 @@
 import "./globals.css";
 import Navbar from "./_components/Navbar/Navbar.jsx";
+import Footer from "./_components/Footer/Footer.jsx";
+import divide from './../../node_modules/lodash-es/divide';
+import addMapEntry from './../../node_modules/lodash-es/_addMapEntry';
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +14,10 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body>
         <Navbar />
+        <div className="container mx-auto py-10">
         {children}
+        </div>
+        <Footer/>
       </body>
     </html>
   );

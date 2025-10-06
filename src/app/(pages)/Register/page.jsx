@@ -1,15 +1,48 @@
+'use client'
+import { useFormik } from "formik"
+import * as Yup from 'yup'
+
 export default function Register() {
+    const initialValues = {
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+        mobile_country_code: "",
+        mobile: "",
+    }
+    const onSubmit = () => {
+        console.log(formik.values)
+    }
+    const validationSchema = Yup.object({
+        name: Yup.string().required("Name is required"),
+        email: Yup.string().email("Invalid email").required("Email is required"),
+        password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+        password_confirmation: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match").required("Confirm Password is required"),
+        mobile_country_code: Yup.string().required("Mobile Country Code is required"),
+        mobile: Yup.string().required("Mobile is required"),
+    })
+    const formik = useFormik({
+        initialValues,
+        onSubmit,
+        validationSchema
+    })
     return (
         <div className="sm:w-2/3 mx-auto">
             <h1 className="text-3xl font-bold">Register Now</h1>
-            <form  >
+            <form onSubmit={formik.handleSubmit}>
                 <div className="py-5 flex flex-wrap gap-4 justify-center">
-                    <input name="name" className="input input-info w-4/5" type="text" placeholder="Name" />
-                    <input name="email" className="input input-info w-4/5" type="email" placeholder="Email" />
-                    <input name="password" className="input input-info w-4/5" type="password" placeholder="Password" />
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} name="name" className="input input-info w-4/5" type="text" placeholder="Name" />
+                    {formik.errors.name && formik.touched.name && <p className="text-red-500">{formik.errors.name}</p>}
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} name="email" className="input input-info w-4/5" type="email" placeholder="Email" />
+                    {formik.errors.email && formik.touched.email && <p className="text-red-500">{formik.errors.email}</p>}
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} name="password" className="input input-info w-4/5" type="password" placeholder="Password" />
+                    {formik.errors.password && formik.touched.password && <p className="text-red-500">{formik.errors.password}</p>}
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password_confirmation} name="password_confirmation" className="input input-info w-4/5" type="password" placeholder="Confirm Password" />
+                    {formik.errors.password_confirmation && formik.touched.password_confirmation && <p className="text-red-500">{formik.errors.password_confirmation}</p>}
                     <div className="flex w-4/5 gap-2">
-                        <select
-                            name="countryCode"
+                        <select onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.mobile_country_code}
+                            name="mobile_country_code"
                             className="select select-info w-1/4"
                             defaultValue="+966"
                         >
@@ -22,12 +55,13 @@ export default function Register() {
                             <option value="+961">🇱🇧 +961</option>
                             <option value="+1">🇺🇸 +1</option>
                         </select>
-                        <input
-                            name="phone"
+                        <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.mobile}
+                            name="mobile"
                             className="input input-info w-3/4"
                             type="tel"
                             placeholder="Phone Number"
                         />
+                        {formik.errors.mobile && formik.touched.mobile && <p className="text-red-500">{formik.errors.mobile}</p>}
                     </div>
                     <button className="btn btn-info w-4/5 rounded">Register</button>
                 </div>

@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body>
         <Navbar />
-        <div className="container mx-auto py-10">
+        <div>
         {children}
         </div>
         <Footer/>

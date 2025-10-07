@@ -1,5 +1,7 @@
+import ProductDetails from "./_components/ProductDetails/ProductDetails.jsx";
+
 export default function Home() {
   return (
-    <h1>Alashmony</h1>
+    <ProductDetails/>
   );
 }

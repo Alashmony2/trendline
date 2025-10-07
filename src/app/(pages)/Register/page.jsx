@@ -20,7 +20,6 @@ export default function Register() {
             "https://tinytales.trendline.marketing/api/auth/register",
             formik.values
           );
-          console.log("Register success:", data);
           router.push("/VerifyAccount")
         } catch (error) {
           console.log("Register error:", error.response?.data || error.message);
@@ -51,8 +50,7 @@ export default function Register() {
             <form onSubmit={formik.handleSubmit}>
                 <div className="py-5 flex flex-wrap gap-4 justify-center">
                     <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} name="name" className="input input-info w-4/5" type="text" placeholder="Name" />
-                    {formik.errors.name && formik.touched.name && <p className="text-red-500">{formik.errors.name}</p>}
-                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} name="email" className="input input-info w-4/5" type="email" placeholder="Email" />
+                    {formik.errors.name && formik.touched.name && <p className="text-red-500">{formik.errors.name}</p>}<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} name="email" className="input input-info w-4/5" type="email" placeholder="Email" />
                     {formik.errors.email && formik.touched.email && <p className="text-red-500">{formik.errors.email}</p>}
                     <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} name="password" className="input input-info w-4/5" type="password" placeholder="Password" />
                     {formik.errors.password && formik.touched.password && <p className="text-red-500">{formik.errors.password}</p>}

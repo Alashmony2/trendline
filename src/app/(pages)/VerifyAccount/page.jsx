@@ -13,7 +13,6 @@ export default function VerifyAccount() {
 
   const onSubmit = (values) => {
     if (values.otp === "123456") {
-      alert("Account verified successfully ✅")
       router.push("/Login")
     } else {
       alert("❌ Invalid OTP, please try again.")

@@ -17,7 +17,7 @@ export default function WelcomeContent() {
           We're glad to have you here. Ready to explore your Website?
         </p>
         <button
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/ProductDetails")}
           className="btn btn-info w-full text-lg font-semibold rounded-xl shadow-md hover:scale-105 transition-all"
         >
           Go to Home

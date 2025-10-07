@@ -1,7 +1,7 @@
-import ProductDetails from "./_components/ProductDetails/ProductDetails.jsx";
+import Register from "./(pages)/Register/page.jsx";
 
 export default function Home() {
   return (
-    <ProductDetails/>
+    <Register/>
   );
 }

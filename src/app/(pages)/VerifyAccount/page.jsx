@@ -2,9 +2,11 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { useRouter } from "next/navigation"
+import { useState } from "react";
 
 export default function VerifyAccount() {
-  const router = useRouter()
+  const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const initialValues = {
     email: "",
@@ -15,7 +17,7 @@ export default function VerifyAccount() {
     if (values.otp === "123456") {
       router.push("/Login")
     } else {
-      alert("❌ Invalid OTP, please try again.")
+      setErrorMessage("OTP is must be 123456")
     }
   }
 
@@ -35,7 +37,7 @@ export default function VerifyAccount() {
   })
 
   return (
-    <div className="sm:w-2/3 mx-auto">
+    <div className="sm:w-2/3 mx-auto my-4">
       <h1 className="text-3xl font-bold text-center">Verify Account</h1>
       <form onSubmit={formik.handleSubmit}>
         <div className="py-5 flex flex-wrap gap-4 justify-center">
@@ -48,9 +50,9 @@ export default function VerifyAccount() {
             type="email"
             placeholder="Email"
           />
-          {formik.errors.email && formik.touched.email && (
-            <p className="text-red-500">{formik.errors.email}</p>
-          )}
+          {formik.errors.email && formik.touched.email && <div role="alert" className="alert alert-error alert-soft w-4/5">
+            <span>{formik.errors.email}</span>
+          </div>}
 
           <input
             onBlur={formik.handleBlur}
@@ -61,13 +63,16 @@ export default function VerifyAccount() {
             type="text"
             placeholder="Enter OTP (e.g. 123456)"
           />
-          {formik.errors.otp && formik.touched.otp && (
-            <p className="text-red-500">{formik.errors.otp}</p>
-          )}
+          {formik.errors.otp && formik.touched.otp && <div role="alert" className="alert alert-error alert-soft w-4/5">
+            <span>{formik.errors.otp}</span>
+          </div>}
 
           <button type="submit" className="btn btn-info w-4/5 rounded">
             Verify
           </button>
+          {errorMessage && <div role="alert" className="alert alert-error alert-soft w-4/5">
+            <span>{errorMessage}</span>
+          </div>}
         </div>
       </form>
     </div>

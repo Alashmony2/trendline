@@ -2,10 +2,12 @@
 import axios from "axios"
 import { useFormik } from "formik"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 import * as Yup from "yup"
 
 export default function Login() {
-  const router = useRouter()
+  const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const initialValues = {
     email: "",
@@ -24,7 +26,7 @@ export default function Login() {
         router.push(`/Welcome?name=${encodeURIComponent(data.data.name)}`)
       }
     } catch (error) {
-      console.log("Login error:", error.response?.data || error.message)
+      setErrorMessage(error.response?.data?.message || "Login failed")
     }
   }
 
@@ -40,7 +42,7 @@ export default function Login() {
   })
 
   return (
-    <div className="sm:w-2/3 mx-auto">
+    <div className="sm:w-2/3 mx-auto my-4">
       <h1 className="text-3xl text-center font-bold">Login</h1>
       <form onSubmit={formik.handleSubmit}>
         <div className="py-5 flex flex-wrap gap-4 justify-center">
@@ -53,9 +55,9 @@ export default function Login() {
             type="email"
             placeholder="Email"
           />
-          {formik.errors.email && formik.touched.email && (
-            <p className="text-red-500">{formik.errors.email}</p>
-          )}
+          {formik.errors.email && formik.touched.email && <div role="alert" className="alert alert-error alert-soft w-4/5">
+            <span>{formik.errors.email}</span>
+          </div>}
 
           <input
             onBlur={formik.handleBlur}
@@ -66,11 +68,15 @@ export default function Login() {
             type="password"
             placeholder="Password"
           />
-          {formik.errors.password && formik.touched.password && (
-            <p className="text-red-500">{formik.errors.password}</p>
-          )}
+          {formik.errors.password && formik.touched.password && <div role="alert" className="alert alert-error alert-soft w-4/5">
+            <span>{formik.errors.password}</span>
+          </div>}
 
           <button className="btn btn-info w-4/5 rounded">Login</button>
+          <p className="text-gray-400 font-medium">Don't have an account <a href="/Register" className="text-[#38C9FE]">Register now</a></p>
+          {errorMessage && <div role="alert" className="alert alert-error alert-soft w-4/5">
+            <span>{errorMessage}</span>
+          </div>}
         </div>
       </form>
     </div>

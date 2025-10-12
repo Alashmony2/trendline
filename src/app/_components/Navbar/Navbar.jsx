@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image"
+import Link from "next/link.js"
 
 export default function Navbar() {
   return (
@@ -8,7 +9,7 @@ export default function Navbar() {
         {/* ===== Left Section (Logo + Menu) ===== */}
         <div className="flex items-center gap-8 navbar-start">
           {/* Logo */}
-          <a href="/ProductDetails" className="flex items-center gap-2">
+          <Link href="/ProductDetails" className="flex items-center gap-2">
             <Image
               src="/assets/Layer_1.svg"
               alt="Logo"
@@ -16,28 +17,28 @@ export default function Navbar() {
               height={51}
               className="object-contain"
             />
-          </a>
+          </Link>
           {/* ===== Menu ===== */}
           <ul className="hidden lg:flex gap-6 font-medium text-gray-700">
             <li className="flex gap-1 items-center">
               <Image src="/assets/icons/navicon/home 04.svg" alt="Home" width={20} height={20} />
-              <a href="/ProductDetails" className="text-[#8A8A8A]">Home</a>
+              <Link href="/ProductDetails" className="text-[#8A8A8A]">Home</Link>
             </li>
             <li className="flex gap-1 items-center">
               <Image src="/assets/icons/navicon/apps.svg" alt="category" width={20} height={20} />
-              <a href="/ProductDetails" className="text-[#8A8A8A]">Our Category</a>
+              <Link href="/ProductDetails" className="text-[#8A8A8A]">Our Category</Link>
             </li>
             <li className="flex gap-1 items-center">
               <Image src="/assets/icons/navicon/about.svg" alt="about" width={20} height={20} />
-              <a href="/ProductDetails" className="text-[#8A8A8A]">About Us</a>
+              <Link href="/ProductDetails" className="text-[#8A8A8A]">About Us</Link>
             </li>
             <li className="flex gap-1 items-center">
               <Image src="/assets/icons/navicon/contact.svg" alt="contact" width={20} height={20} />
-              <a href="/ProductDetails" className="text-[#8A8A8A]">Contact Us</a>
+              <Link href="/ProductDetails" className="text-[#8A8A8A]">Contact Us</Link>
             </li>
             <li className="flex gap-1 items-center">
               <Image src="/assets/icons/navicon/faq.svg" alt="faq" width={20} height={20} />
-              <a href="/ProductDetails" className="text-[#8A8A8A]">FAQs</a>
+              <Link href="/ProductDetails" className="text-[#8A8A8A]">FAQs</Link>
             </li>
           </ul>
         </div>

@@ -1,6 +1,7 @@
 'use client'
 import axios from "axios"
 import { useFormik } from "formik"
+import Link from "next/link.js"
 import { useRouter } from "next/navigation.js"
 import { useState } from "react"
 import * as Yup from 'yup'
@@ -92,7 +93,7 @@ export default function Register() {
                         </div>}
                     </div>
                     <button className="btn btn-info w-4/5 rounded">Register</button>
-                    <p className="text-gray-400 font-medium">Do you have an account <a href="/Login" className="text-[#38C9FE]">Login</a></p>
+                    <p className="text-gray-400 font-medium">Do you have an account <Link href="/Login" className="text-[#38C9FE]">Login</Link></p>
                     {errorMessage && <div role="alert" className="alert alert-error alert-soft w-4/5">
                         <span>{errorMessage}</span>
                     </div>}

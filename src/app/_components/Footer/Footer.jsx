@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import Image from "next/image.js";
 
 export default function Footer() {
   return (
@@ -61,21 +62,25 @@ export default function Footer() {
   <p className="font-semibold text-sm md:text-left">Follow Us</p>
 
   {/* Social Icons */}
-  <div className="flex gap-4 justify-center sm:justify-start text-xl">
+  <div className="flex text-xl">
     <div className="w-10 h-10 flex items-center justify-center overflow-hidden rounded-full transition cursor-pointer">
-      <Facebook className="w-5 h-5" />
+      <Image src="/assets/footer/facebook.svg" alt="facebook" width={11} height={18} />
     </div>
     <div className="w-10 h-10 flex items-center justify-center  text-white rounded-full transition cursor-pointer">
-      <Twitter className="w-5 h-5" />
+      <Image src="/assets/footer/Vector.svg" alt="twitter" width={20.92} height={17} />
+
     </div>
     <div className="w-10 h-10 flex items-center justify-center  text-white rounded-full transition cursor-pointer">
-      <Instagram className="w-5 h-5" />
+      <Image src="/assets/footer/inst.svg" alt="instagram" width={20} height={20} />
     </div>
     <div className="w-10 h-10 flex items-center justify-center  text-white rounded-full transition cursor-pointer">
-      <Linkedin className="w-5 h-5" />
+      <Image src="/assets/footer/linked.svg" alt="linkedIn" width={20} height={20} />
     </div>
     <div className="w-10 h-10 flex items-center justify-center  text-white rounded-full transition cursor-pointer">
-      <Youtube className="w-5 h-5" />
+      <Image src="/assets/footer/whatsapp.svg" alt="whatsapp" width={20} height={20} />
+    </div>
+    <div className="w-10 h-10 flex items-center justify-center  text-white rounded-full transition cursor-pointer">
+      <Image src="/assets/footer/telegram.svg" alt="telegram" width={21} height={17.5} />
     </div>
   </div>
 </div>

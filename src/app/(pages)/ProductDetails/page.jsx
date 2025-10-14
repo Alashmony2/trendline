@@ -24,16 +24,16 @@ export default function ProductDetails() {
     return <>
         {/* Title banner */}
         <div className="bg-[url('/assets/home/details.png')] py-13 text-center mb-4">
-            <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">
+            <h1 className="text-[32px]  font-semibold ">
                 Product Details
             </h1>
         </div>
         <section className="container mx-auto ">
             {/* Breadcrumb */}
-            <div className="text-sm text-gray-500 mb-6 bg-[#ECECEC66]/40 rounded pl-3 py-3">
-                <span>Home</span> <span className="mx-2">/</span>
-                <span>Our Category</span> <span className="mx-2">/</span>
-                <span className="text-black font-semibold">Product Details</span>
+            <div className="text-[16px] font-medium text-black mb-6 bg-[#ECECEC66]/40 rounded pl-3 py-3">
+                <span>Home</span> <span className="mx-2">&gt;</span>
+                <span>Our Category</span> <span className="mx-2">&gt;</span>
+                <span className="text-[#8A8A8A]">Product Details</span>
             </div>
             {/* Main row (wrapped) */}
             <div>

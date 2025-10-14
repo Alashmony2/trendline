@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
 import { Heart, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import Image from "next/image.js";
 
 export default function ProductDetails() {
     const [quantity, setQuantity] = useState(1);
@@ -35,30 +36,32 @@ export default function ProductDetails() {
                 <span>Our Category</span> <span className="mx-2">&gt;</span>
                 <span className="text-[#8A8A8A]">Product Details</span>
             </div>
-            {/* Main row (wrapped) */}
-            <div>
-                <div className="flex flex-col lg:flex-row items-start gap-6 ">
+            {/* Main row */}
+            <div >
+                <div className="flex flex-col sm:flex-row items-start gap-6">
                     {/* Left: Gallery */}
-                    <div className=" flex flex-col items-center lg:items-start w-fit ">
-                        <div className="relative bg-gray-100 rounded-2xl overflow-hidden w-full max-w-sm">
-                            <img
-                                src="/assets/home/man.svg"
-                                alt="product"
-                                className="object-contain w-[524px] h-[500px]"
-                            />
-                            <button className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#C4C4C4] text-white p-2 rounded-full">
+                    <div className="flex flex-col items-center lg:items-start w-fit mx-auto">
+                        <div className="relative bg-gray-100 rounded-2xl overflow-hidden w-full max-w-sm ">
+                            <div className=" w-[524px] h-[500px]  ">
+                                <Image width={305} height={514}
+                                    src="/assets/home/man.svg"
+                                    alt="product"
+                                    className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain"
+                                />
+                            </div>
+                            <button className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#C4C4C4] text-white p-2 rounded-full cursor-pointer">
                                 <ChevronLeft className="w-5 h-5" />
                             </button>
-                            <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#BE968E] text-white p-2 rounded-full">
+                            <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#BE968E] text-white p-2 rounded-full cursor-pointer">
                                 <ChevronRight className="w-5 h-5" />
                             </button>
                         </div>
                         {/* Thumbnails */}
                         <div className="flex justify-center gap-1 w-full max-w-sm lg:justify-start mt-2 ">
-                            <img src="/assets/home/tshirt1.svg" className="w-full h-20 rounded-lg cursor-pointer object-cover bg-gray-100" />
-                            <img src="/assets/home/tshirt2.svg" className="w-full h-20 rounded-lg cursor-pointer object-cover bg-gray-100" />
+                            <Image width={142} height={142} alt="white t-shirt" src="/assets/home/tshirt1.svg" className="w-full h-20 rounded-lg cursor-pointer object-cover bg-gray-100" />
+                            <Image width={142} height={142} alt="red t-shirt" src="/assets/home/tshirt2.svg" className="w-full h-20 rounded-lg cursor-pointer object-cover bg-gray-100" />
                             <div className="relative w-full h-20 rounded-lg overflow-hidden cursor-pointer">
-                                <img src="/assets/home/tshirt3.svg" className="w-full h-full object-cover" />
+                                <Image width={142} height={142} alt="black t-shirt" src="/assets/home/tshirt3.svg" className="w-full h-full object-cover" />
                                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-lg font-semibold">
                                     +2
                                 </div>
